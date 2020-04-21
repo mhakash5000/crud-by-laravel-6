@@ -36,13 +36,12 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        Student::create([
-            'name'=>$request->name,
-            'phone'=>$request->phone,
-            'email'=>$request->email,
-        ]);
+       $userData=new User();
+       $userData->name=$request->name;
+         $userData->phone=$request->phone;
+         $userData->email=$request->email;
         Session::flash('success','Student Created Successfully');
-     return redirect()->back();
+        return redirect()->back();
     }
 
     /**
