@@ -38,9 +38,10 @@ class StudentController extends Controller
     {
        $userData=new User();
        $userData->name=$request->name;
-         $userData->phone=$request->phone;
-         $userData->email=$request->email;
-        Session::flash('success','Student Created Successfully');
+       $userData->phone=$request->phone;
+       $userData->email=$request->email;
+       $userData->save();
+       Session::flash('success','Student Created Successfully');
         return redirect()->back();
     }
 
